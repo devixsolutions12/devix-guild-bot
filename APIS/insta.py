@@ -15,6 +15,11 @@ from functools import lru_cache
 
 app = Flask(__name__)
 
+# Health check route for UptimeRobot
+@app.route('/')
+def health_check():
+    return "Bot is Online!", 200
+
 # DONT REMOVE THIS BRUH
 @lru_cache(maxsize=1024)
 def fetch_instagram_profile(username, proxy=None):

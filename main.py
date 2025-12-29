@@ -3228,7 +3228,7 @@ async def TcPChaT(ip, port, AutHToKen, key, iv, LoGinDaTaUncRypTinG, ready_event
                         # Stop auto start command
                         if inPuTMsG.strip() == '/stop_auto':
                             print('Processing stop_auto command')
-                            global auto_start_task, stop_auto
+                            global auto_start_task, stop_auto  # Moved this line up
                             if auto_start_task and not auto_start_task.done():
                                 auto_start_running = False
                                 stop_auto = True

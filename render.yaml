@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: devix-guild-bot
+    env: docker
+    plan: free
+    branch: master
+    repo: https://github.com/devixsolutions12/devix-guild-bot
+    healthCheckPath: /
+    autoDeploy: true
+    envVars:
+      - key: PORT
+        value: 8080

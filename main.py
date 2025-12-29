@@ -3594,7 +3594,9 @@ async def TcPChaT(ip, port, AutHToKen, key, iv, LoGinDaTaUncRypTinG, ready_event
                                 error_msg = f"[B][C][FF0000]❌ ERROR! No active evolution custom spam to stop!\n"
                                 await safe_send_message(response.Data.chat_type, error_msg, uid, chat_id, key, iv)
 
-# IMPROVED TREE-STYLE HELP MENU SYSTEM (Commands in their original menus) 🌳
+                        # IMPROVED TREE-STYLE HELP MENU SYSTEM (Commands in their original menus) 🌳
+                        # Debug: Print all received messages to logs
+                        print(f"[DEBUG] Raw Message Received: '{inPuTMsG}'")
                         if inPuTMsG.strip().lower() in ("help", "/help", "menu", "/menu", "commands"):
                             print(f"Help command detected from UID: {uid} in chat type: {response.Data.chat_type}")
 

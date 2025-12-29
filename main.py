@@ -3224,7 +3224,20 @@ async def TcPChaT(ip, port, AutHToKen, key, iv, LoGinDaTaUncRypTinG, ready_event
                                     auto_start_loop(team_code, uid, chat_id, response.Data.chat_type, key, iv, region)
                                 )
                         
-
+                        
+                        # Stop auto start command
+                        if inPuTMsG.strip() == '/stop_auto':
+                            print('Processing stop_auto command')
+                            global auto_start_task, stop_auto
+                            if auto_start_task and not auto_start_task.done():
+                                auto_start_running = False
+                                stop_auto = True
+                                auto_start_task.cancel()
+                                success_msg = f"[B][C][00FF00]✅ SUCCESS! Auto start bot stopped successfully!\n"
+                                await safe_send_message(response.Data.chat_type, success_msg, uid, chat_id, key, iv)
+                            else:
+                                error_msg = f"[B][C][FF0000]❌ ERROR! No active auto start bot to stop!\n"
+                                await safe_send_message(response.Data.chat_type, error_msg, uid, chat_id, key, iv)
 
                         # EVO CYCLE START COMMAND - /random
                         if inPuTMsG.strip().startswith('/random'):
